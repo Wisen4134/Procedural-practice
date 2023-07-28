@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="delegate委派練習\Gossiping.cs" />
+    <Compile Include="delegate委派練習\Passenger.cs" />
+    <Compile Include="delegate委派練習\Taiwan.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

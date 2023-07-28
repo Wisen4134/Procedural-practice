@@ -29,13 +29,24 @@ namespace ConsoleApp2
             Thread.Sleep(1);
             PrintGeneric();
 
+            // 委派練習實例
+            Taiwan taiwan = new Taiwan();
+
+            int num = int.Parse(Console.ReadLine());
+            PrintNumber print;
+            if (num % 2 == 1)
+                print = PrintOddNum;
+            else
+                print = PrintEvenNum;
+            print(num);
+
             Console.Write($"費氏數列驗證，請輸入數字：");
             Console.WriteLine("結果為：" + Algorithm.PrintFibonacci(Int32.Parse(Console.ReadLine())));
 
             Console.ReadLine();
 
         }
-        
+
         private static void PrintGeneric()
         {
             object obj = new object();
@@ -44,7 +55,7 @@ namespace ConsoleApp2
             Console.WriteLine($"來看看string ：{PrintSomeType<string>("字串啦")}");
             Console.WriteLine($"來看看double ：{PrintSomeType<double>(1.5)}");
             Console.WriteLine($"來看看object ：{PrintSomeType<object>(obj)}");
-            
+
         }
 
 
@@ -58,6 +69,24 @@ namespace ConsoleApp2
         private static string PrintSomeType<EnterTypeHere>(EnterTypeHere para)
         {
             return $"泛型應用：{para} 類型為：{typeof(EnterTypeHere)}";
+        }
+
+        public delegate void PrintNumber(int num);
+        public static void PrintOddNum(int num)
+        {
+            Console.WriteLine($"奇數：{num}\r\n");
+        }
+        public static void PrintEvenNum(int num)
+        {
+            Console.WriteLine($"偶數：{num}\r\n");
+        }
+
+        public class Passenger
+        {
+            public void ReceiveNews(string news)
+            {
+                Console.WriteLine($"接收者收到：{news}\r\n");
+            }
         }
         public class DataStructure
         {
